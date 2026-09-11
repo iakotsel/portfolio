@@ -107,6 +107,11 @@ a:hover { color: var(--color-accent-ink-hover); }
 .media-slot small { opacity: .75; }
 .grayscale img { filter: grayscale(1); width: 100%; display: block; }
 .grayscale video { filter: grayscale(1); width: 100%; display: block; }
+.zoomable { cursor: zoom-in; }
+.lightbox-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 32px; background: rgba(0, 0, 0, .85); cursor: zoom-out; }
+.lightbox-overlay.open { display: flex; }
+.lightbox-overlay img { max-width: 92vw; max-height: 92vh; width: auto; filter: none; border-radius: 4px; object-fit: contain; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+.lightbox-close { position: absolute; top: 20px; right: 28px; width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .08); color: #fefcfb; font-size: 20px; line-height: 1; cursor: pointer; }
 
 </style>
 </head>
@@ -354,10 +359,10 @@ a:hover { color: var(--color-accent-ink-hover); }
         <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Query data where it lives, exposed through an API that tools like Claude Code and Postgres clients speak natively. Scoped, built and shipped in roughly two months; adopted immediately by Fugro as DTACT's first enterprise deployment.</p>
       </div>
       <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0; display: grid; gap: 10px;">
-        <img src="assets/proj-fusion.webp" alt="Fusion Explore screen — 9 connected systems and 154 tables in the catalogue" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+        <img class="zoomable" src="assets/proj-fusion.webp" alt="Fusion Explore screen — 9 connected systems and 154 tables in the catalogue" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <img src="assets/proj-fusion-connect.webp" alt="Fusion Connect screen — data source marketplace" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
-          <img src="assets/proj-fusion-share.webp" alt="Fusion Share screen — AI assistant and API integrations" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+          <img class="zoomable" src="assets/proj-fusion-connect.webp" alt="Fusion Connect screen — data source marketplace" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+          <img class="zoomable" src="assets/proj-fusion-share.webp" alt="Fusion Share screen — AI assistant and API integrations" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
         </div>
         <video src="assets/demo-fusion.mov" controls preload="metadata" style="width: 100%; border-radius: 4px;"></video>
         <figcaption style="font-size: 13px; color: var(--color-neutral-300);">Live walkthrough of the Fusion catalogue — explore, connect and share screens.</figcaption>
@@ -507,6 +512,11 @@ a:hover { color: var(--color-accent-ink-hover); }
 
 </div>
 
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close enlarged image">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
 (function () {
   function init() {
@@ -540,6 +550,26 @@ a:hover { color: var(--color-accent-ink-hover); }
         });
       }, { rootMargin: '-20% 0px -65% 0px' });
       releases.forEach(function (r) { obs.observe(r); });
+    }
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxClose = document.getElementById('lightbox-close');
+    if (lightbox && lightboxImg) {
+      var openLightbox = function (src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        lightbox.classList.add('open');
+      };
+      var closeLightbox = function () {
+        lightbox.classList.remove('open');
+        lightboxImg.src = '';
+      };
+      document.querySelectorAll('img.zoomable').forEach(function (img) {
+        img.addEventListener('click', function () { openLightbox(img.currentSrc || img.src, img.alt); });
+      });
+      lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
     }
   }
   if (document.readyState === 'loading') {
