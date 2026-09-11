@@ -114,6 +114,10 @@ a:hover { color: var(--color-accent-ink-hover); }
 .lightbox-overlay.open { display: flex; }
 .lightbox-overlay img { max-width: 92vw; max-height: 92vh; width: auto; filter: none; border-radius: 4px; object-fit: contain; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
 .lightbox-close { position: absolute; top: 20px; right: 28px; width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .08); color: #fefcfb; font-size: 20px; line-height: 1; cursor: pointer; }
+.blur-frame { position: relative; display: block; }
+.blur-patch { position: absolute; top: 28%; left: 28%; width: 44%; height: 44%; border-radius: 8px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: color-mix(in srgb, var(--color-bg) 20%, transparent); pointer-events: none; }
+#lightbox-frame.blur-frame { display: inline-flex; }
+#lightbox-blur[hidden] { display: none; }
 
 </style>
 </head>
@@ -345,14 +349,23 @@ a:hover { color: var(--color-accent-ink-hover); }
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
       <div style="flex: 1 1 420px; min-width: 0;">
         <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">01 — DTACT</p>
-        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Fusion MVP — a virtual data lake</h3>
+        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Virtual Data Lake MVP</h3>
         <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Query data where it lives, exposed through an API that tools like Claude Code and Postgres clients speak natively. Scoped, built and shipped in roughly two months; adopted immediately by Fugro as DTACT's first enterprise deployment.</p>
       </div>
       <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0; display: grid; gap: 10px;">
-        <img class="zoomable" src="assets/proj-fusion.webp" alt="Fusion Explore screen — 9 connected systems and 154 tables in the catalogue" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+        <span class="blur-frame">
+          <img class="zoomable" data-blur="center" src="assets/proj-fusion.webp" alt="Fusion Explore screen — 9 connected systems and 154 tables in the catalogue" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+          <span class="blur-patch"></span>
+        </span>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <img class="zoomable" src="assets/proj-fusion-connect.webp" alt="Fusion Connect screen — data source marketplace" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
-          <img class="zoomable" src="assets/proj-fusion-share.webp" alt="Fusion Share screen — AI assistant and API integrations" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+          <span class="blur-frame">
+            <img class="zoomable" data-blur="center" src="assets/proj-fusion-connect.webp" alt="Fusion Connect screen — data source marketplace" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+            <span class="blur-patch"></span>
+          </span>
+          <span class="blur-frame">
+            <img class="zoomable" data-blur="center" src="assets/proj-fusion-share.webp" alt="Fusion Share screen — AI assistant and API integrations" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+            <span class="blur-patch"></span>
+          </span>
         </div>
         <video src="assets/demo-fusion.mov" controls preload="metadata" style="width: 100%; border-radius: 4px;"></video>
         <figcaption style="font-size: 13px; color: var(--color-neutral-300);">Live walkthrough of the Fusion catalogue — explore, connect and share screens.</figcaption>
@@ -366,7 +379,9 @@ a:hover { color: var(--color-accent-ink-hover); }
         <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Fugro's ocean-survey geophysicists turn raw magnetometer and positioning data into target picks — flagging unexploded ordnance, cables and other seabed hazards — using an expensive, vendor-locked third-party tool. We built a pilot that ingests standard data inputs, lets users configure it per project, and outputs the files their geophysics software expects — automating a specialist manual workflow and cutting Fugro's dependency on that vendor.</p>
       </div>
       <div style="flex: 1 1 280px; min-width: 0; display: grid; align-content: start; gap: 18px;">
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">High-value</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Paid pilot</p></div>
+        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">&lt;2 months</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Problem scoped to solution delivered</p></div>
+        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">6/6</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">SoW items met</p></div>
+        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">Paid Pilot</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Engagement type</p></div>
         <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-size: 15px; line-height: 24px; margin: 0;">Proved DTACT could handle a customer's hardest data problem end to end — and built the trust behind Fugro's later investment in the company.</p></div>
       </div>
       <figure class="grayscale" style="flex: 1 1 100%; min-width: 0; margin: 12px 0 0;">
@@ -520,7 +535,10 @@ a:hover { color: var(--color-accent-ink-hover); }
 
 <div class="lightbox-overlay" id="lightbox">
   <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close enlarged image">&times;</button>
-  <img id="lightbox-img" src="" alt="">
+  <span class="blur-frame" id="lightbox-frame">
+    <img id="lightbox-img" src="" alt="">
+    <span class="blur-patch" id="lightbox-blur" hidden></span>
+  </span>
 </div>
 
 <script>
@@ -559,11 +577,13 @@ a:hover { color: var(--color-accent-ink-hover); }
     }
     var lightbox = document.getElementById('lightbox');
     var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxBlur = document.getElementById('lightbox-blur');
     var lightboxClose = document.getElementById('lightbox-close');
     if (lightbox && lightboxImg) {
-      var openLightbox = function (src, alt) {
-        lightboxImg.src = src;
-        lightboxImg.alt = alt || '';
+      var openLightbox = function (img) {
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt || '';
+        if (lightboxBlur) lightboxBlur.hidden = img.dataset.blur !== 'center';
         lightbox.classList.add('open');
       };
       var closeLightbox = function () {
@@ -571,7 +591,7 @@ a:hover { color: var(--color-accent-ink-hover); }
         lightboxImg.src = '';
       };
       document.querySelectorAll('img.zoomable').forEach(function (img) {
-        img.addEventListener('click', function () { openLightbox(img.currentSrc || img.src, img.alt); });
+        img.addEventListener('click', function () { openLightbox(img); });
       });
       lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
       if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
