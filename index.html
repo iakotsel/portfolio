@@ -61,12 +61,15 @@
   --color-accent-ink: #0c556c;
   --color-accent-ink-hover: #0f6b87;
 }
-.btn { border-radius: 999px; }
-.btn-primary { background: var(--color-accent); color: #0a1128; }
-.btn-primary:hover { background: var(--color-accent-300); }
-.btn-primary:active { background: var(--color-accent-400); }
+.btn { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 11px 22px; font-family: var(--font-body); font-weight: 600; font-size: 14px; line-height: 1.2; text-decoration: none; border: 1.5px solid transparent; cursor: pointer; white-space: nowrap; transition: background .15s, border-color .15s, color .15s, opacity .15s; }
+.btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: #0a1128; }
+.btn-primary:hover { background: var(--color-accent-300); border-color: var(--color-accent-300); }
+.btn-primary:active { background: var(--color-accent-400); border-color: var(--color-accent-400); }
 .nav a.btn-primary { color: #0a1128; }
-.btn-secondary { border-color: var(--color-divider); color: var(--color-text); }
+.btn-secondary { background: transparent; border-color: var(--color-divider); color: var(--color-text); }
+.btn-secondary:hover { border-color: var(--color-accent-ink); color: var(--color-accent-ink); }
+.btn-ghost { background: transparent; border-color: currentColor; color: inherit; }
+.btn-ghost:hover { opacity: .78; }
 .tag-accent { background: var(--color-accent-300); color: #0a1128; }
 .theme-toggle { border: 1px solid var(--color-divider); background: transparent; color: var(--color-text); width: 32px; height: 32px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
 .theme-toggle svg { width: 16px; height: 16px; }
@@ -117,7 +120,7 @@ a:hover { color: var(--color-accent-ink-hover); }
   <a href="#work" style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap;">Work</a>
   <a href="#writing" style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap;">Writing</a>
   <a href="#skills" style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap;">Skills</a>
-  <a class="btn btn-primary" href="#contact" style="text-decoration: none;">Get in touch</a>
+  <a class="btn btn-primary" href="#contact">Get in touch</a>
   <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light and dark mode">
     <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
@@ -133,8 +136,8 @@ a:hover { color: var(--color-accent-ink-hover); }
     </h1>
     <p style="font-size: 18px; line-height: 28px; max-width: 58ch; margin: 34px 0 0;">Data-driven product leader. Fifteen years of finance, payments and compliance work turned into software — from wire allocation at Tesla to a virtual data lake shipped to defence and geoscience customers at DTACT, where I am Head of Product.</p>
     <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;">
-      <a class="btn btn-primary" href="#work" style="text-decoration: none;">See the work</a>
-      <a class="btn btn-secondary" href="#contact" style="text-decoration: none;">Open to roles &amp; consulting</a>
+      <a class="btn btn-primary" href="#work">See the work</a>
+      <a class="btn btn-secondary" href="#contact">Open to roles &amp; consulting</a>
     </div>
   </section>
 
@@ -485,14 +488,14 @@ a:hover { color: var(--color-accent-ink-hover); }
         <span style="display: block;">and select consulting work.</span>
       </h3>
       <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center; margin-top: 40px;">
-        <a class="btn btn-ghost" href="mailto:iakovos.tsel@gmail.com" style="color: #fefcfb; border: 1px solid #fefcfb; padding: 10px 16px; text-decoration: none;">iakovos.tsel@gmail.com</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/iakovostselentis/" target="_blank" rel="noopener" style="color: #fefcfb; border: 1px solid #fefcfb; padding: 10px 16px; text-decoration: none;">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="mailto:iakovos.tsel@gmail.com">iakovos.tsel@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/iakovostselentis/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
     </div>
   </section>
 
 <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px);">
-  <footer style="padding: 40px 0; font-size: 13px; line-height: 22px; color: var(--color-neutral-300);">Iakovos Tselentis — product leadership, Amsterdam / The Hague.</footer>
+  <footer style="padding: 40px 0; font-size: 13px; line-height: 22px; color: var(--color-neutral-300);">Iakovos Tselentis — product leadership, Netherlands. Randstad region and remote opportunities.</footer>
 </div>
 
 
