@@ -105,8 +105,6 @@ a:hover { color: var(--color-accent-ink-hover); }
   .log-rail button.active { border-bottom-color: var(--color-accent); }
 }
 
-.media-slot { border: 1.5px dashed var(--color-divider); border-radius: 4px; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--color-neutral-300); font-size: 13px; padding: 16px; box-sizing: border-box; }
-.media-slot small { opacity: .75; }
 .grayscale img { filter: grayscale(1); width: 100%; display: block; }
 .grayscale video { width: 100%; display: block; }
 .zoomable { cursor: zoom-in; }
@@ -515,11 +513,11 @@ a:hover { color: var(--color-accent-ink-hover); }
         <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">06 — Tesla</p>
         <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Cycle review automation</h3>
         <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Monthly reporting rebuilt on Power BI and SQL: two days of assembling numbers became a thirty-minute review of them. Forty-plus colleagues trained to run and extend it themselves.</p>
-        <p style="font-size: 15px; line-height: 24px; color: var(--color-neutral-300); margin: 16px 0 0;">Placeholder — drop a Power BI dashboard capture in the frame.</p>
       </div>
-      <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0;">
-        <div class="media-slot" style="width: 100%; aspect-ratio: 16 / 10;" data-slot="proj-pbi"><span>Add image: Power BI dashboard<br><small>(proj-pbi.jpg in /assets)</small></span></div>
-      </figure>
+      <div style="flex: 1 1 280px; min-width: 0; display: grid; align-content: start; gap: 18px;">
+        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">2 days → 30 min</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Monthly reporting review time</p></div>
+        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">40+</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Colleagues trained to self-serve</p></div>
+      </div>
     </article>
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); padding: 40px 0;">
