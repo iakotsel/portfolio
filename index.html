@@ -353,7 +353,7 @@ a:hover { color: var(--color-accent-ink-hover); }
         <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Query data where it lives, exposed through an API that tools like Claude Code and Postgres clients speak natively. Scoped, built and shipped in roughly two months; adopted immediately as DTACT's first enterprise deployment.</p>
       </div>
       <figure style="flex: 1 1 100%; min-width: 0; margin: 20px 0 0;">
-        <svg viewBox="0 0 1150 390" fill="currentColor" role="img" aria-label="Data flows from source systems through connector Python modules into a governed data management layer, then out through access Python modules to services and applications." style="width: 100%; height: auto; display: block; font-family: var(--font-body); color: var(--color-text);">
+        <svg viewBox="0 0 1150 390" fill="currentColor" role="img" aria-label="Data flows from source systems through connector modules into a governed infrastructure layer spanning SaaS and on-prem, then out through access modules to third-party services and applications." style="width: 100%; max-width: 780px; height: auto; display: block; margin: 0 auto; font-family: var(--font-body); color: var(--color-text);">
           <defs>
             <marker id="wf-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
@@ -372,14 +372,15 @@ a:hover { color: var(--color-accent-ink-hover); }
           <text x="62" y="28" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Systems &amp;</text>
           <text x="62" y="48" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Data Sources</text>
           <text x="243" y="28" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Connector</text>
-          <text x="243" y="48" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Python modules</text>
+          <text x="243" y="48" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">modules</text>
           <text x="495" y="18" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Data Management,</text>
           <text x="495" y="36" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Governance &amp;</text>
           <text x="495" y="54" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Controls</text>
           <text x="773" y="28" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Access</text>
-          <text x="773" y="48" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Python modules</text>
-          <text x="985" y="200" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Services &amp;</text>
-          <text x="985" y="222" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Applications</text>
+          <text x="773" y="48" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">modules</text>
+          <text x="985" y="189" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">3rd Party</text>
+          <text x="985" y="211" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Services &amp;</text>
+          <text x="985" y="233" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Applications</text>
 
           <use href="#db-cyl" x="40" y="105"></use>
           <use href="#db-cyl" x="40" y="160"></use>
@@ -404,14 +405,8 @@ a:hover { color: var(--color-accent-ink-hover); }
           <path d="M340,90 A155,18 0 0,0 650,90 L650,330 A155,18 0 0,1 340,330 Z" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"></path>
           <ellipse cx="495" cy="330" rx="155" ry="18" fill="currentColor" fill-opacity="0.10" stroke="currentColor" stroke-width="1.5"></ellipse>
           <ellipse cx="495" cy="90" rx="155" ry="18" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.5"></ellipse>
-          <line x1="340" y1="150" x2="650" y2="150" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"></line>
-          <line x1="340" y1="210" x2="650" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"></line>
-          <line x1="340" y1="270" x2="650" y2="270" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"></line>
-          <text x="495" y="124" text-anchor="middle" font-size="14">SaaS AWS</text>
-          <text x="495" y="184" text-anchor="middle" font-size="14">SaaS Azure</text>
-          <text x="495" y="244" text-anchor="middle" font-size="14">SaaS Other</text>
-          <text x="495" y="304" text-anchor="middle" font-size="14">On Prem Dell Series X</text>
-          <text x="495" y="356" text-anchor="middle" font-size="13" fill-opacity="0.7">Etc..</text>
+          <text x="495" y="204" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="17">Infrastructure Layer</text>
+          <text x="495" y="228" text-anchor="middle" font-size="14" fill-opacity="0.75">(SaaS &amp; On-Prem)</text>
 
           <line x1="650" y1="210" x2="760" y2="150" stroke="currentColor" stroke-width="1" stroke-opacity="0.55"></line>
           <line x1="650" y1="210" x2="760" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.55"></line>
@@ -421,11 +416,11 @@ a:hover { color: var(--color-accent-ink-hover); }
           <use href="#mod-cube" x="760" y="197"></use>
           <use href="#mod-cube" x="760" y="257"></use>
 
-          <line x1="786" y1="150" x2="900" y2="198" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
-          <line x1="786" y1="210" x2="900" y2="210" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
-          <line x1="786" y1="270" x2="900" y2="222" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+          <line x1="786" y1="150" x2="900" y2="199" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+          <line x1="786" y1="210" x2="900" y2="211" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+          <line x1="786" y1="270" x2="900" y2="223" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
         </svg>
-        <figcaption style="font-size: 13px; color: var(--color-neutral-300); margin-top: 10px;">How Fusion moves data: source systems in on the left through connector Python modules, governed centrally, out through access Python modules to services and applications on the right.</figcaption>
+        <figcaption style="font-size: 13px; color: var(--color-neutral-300); margin-top: 10px; text-align: center;">How Fusion moves data: source systems in on the left through connector modules, governed centrally across SaaS and on-prem infrastructure, out through access modules to third-party services and applications on the right.</figcaption>
       </figure>
     </article>
 
