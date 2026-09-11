@@ -106,6 +106,7 @@ a:hover { color: var(--color-accent-ink-hover); }
 .media-slot { border: 1.5px dashed var(--color-divider); border-radius: 4px; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--color-neutral-300); font-size: 13px; padding: 16px; box-sizing: border-box; }
 .media-slot small { opacity: .75; }
 .grayscale img { filter: grayscale(1); width: 100%; display: block; }
+.grayscale video { filter: grayscale(1); width: 100%; display: block; }
 
 </style>
 </head>
@@ -351,10 +352,15 @@ a:hover { color: var(--color-accent-ink-hover); }
         <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">02 — DTACT</p>
         <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Fusion MVP — a virtual data lake</h3>
         <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Query data where it lives, exposed through an API that tools like Claude Code and Postgres clients speak natively. Scoped, built and shipped in roughly two months; adopted immediately by Fugro as DTACT's first enterprise deployment.</p>
-        <p style="font-size: 15px; line-height: 24px; color: var(--color-neutral-300); margin: 16px 0 0;">Placeholder — drop a product screenshot in the frame.</p>
       </div>
-      <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0;">
-        <div class="media-slot" style="width: 100%; aspect-ratio: 16 / 10;" data-slot="proj-fusion"><span>Add image: Fusion MVP screenshot<br><small>(proj-fusion.jpg in /assets)</small></span></div>
+      <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0; display: grid; gap: 10px;">
+        <img src="assets/proj-fusion.webp" alt="Fusion Explore screen — 9 connected systems and 154 tables in the catalogue" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <img src="assets/proj-fusion-connect.webp" alt="Fusion Connect screen — data source marketplace" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+          <img src="assets/proj-fusion-share.webp" alt="Fusion Share screen — AI assistant and API integrations" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px;">
+        </div>
+        <video src="assets/demo-fusion.mov" controls preload="metadata" style="width: 100%; border-radius: 4px;"></video>
+        <figcaption style="font-size: 13px; color: var(--color-neutral-300);">Live walkthrough of the Fusion catalogue — explore, connect and share screens.</figcaption>
       </figure>
     </article>
 
