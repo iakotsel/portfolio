@@ -352,6 +352,81 @@ a:hover { color: var(--color-accent-ink-hover); }
         <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Virtual Data Lake MVP</h3>
         <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Query data where it lives, exposed through an API that tools like Claude Code and Postgres clients speak natively. Scoped, built and shipped in roughly two months; adopted immediately as DTACT's first enterprise deployment.</p>
       </div>
+      <figure style="flex: 1 1 100%; min-width: 0; margin: 20px 0 0;">
+        <svg viewBox="0 0 1150 390" fill="currentColor" role="img" aria-label="Data flows from source systems through connector Python modules into a governed data management layer, then out through access Python modules to services and applications." style="width: 100%; height: auto; display: block; font-family: var(--font-body); color: var(--color-text);">
+          <defs>
+            <marker id="wf-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
+            </marker>
+            <g id="db-cyl">
+              <path d="M0,7 A22,7 0 0,0 44,7 L44,23 A22,7 0 0,1 0,23 Z" fill="currentColor" fill-opacity="0.10" stroke="currentColor" stroke-width="1.3"></path>
+              <ellipse cx="22" cy="7" rx="22" ry="7" fill="currentColor" fill-opacity="0.20" stroke="currentColor" stroke-width="1.3"></ellipse>
+            </g>
+            <g id="mod-cube">
+              <polygon points="0,6 6,0 26,0 20,6" fill="currentColor" fill-opacity="0.32" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"></polygon>
+              <polygon points="20,6 26,0 26,20 20,26" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"></polygon>
+              <rect x="0" y="6" width="20" height="20" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.2"></rect>
+            </g>
+          </defs>
+
+          <text x="62" y="28" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Systems &amp;</text>
+          <text x="62" y="48" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Data Sources</text>
+          <text x="243" y="28" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Connector</text>
+          <text x="243" y="48" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Python modules</text>
+          <text x="495" y="18" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Data Management,</text>
+          <text x="495" y="36" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Governance &amp;</text>
+          <text x="495" y="54" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Controls</text>
+          <text x="773" y="28" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Access</text>
+          <text x="773" y="48" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Python modules</text>
+          <text x="985" y="200" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Services &amp;</text>
+          <text x="985" y="222" text-anchor="middle" font-family="var(--font-heading)" font-weight="800" font-size="15">Applications</text>
+
+          <use href="#db-cyl" x="40" y="105"></use>
+          <use href="#db-cyl" x="40" y="160"></use>
+          <use href="#db-cyl" x="40" y="215"></use>
+          <use href="#db-cyl" x="40" y="270"></use>
+
+          <use href="#mod-cube" x="230" y="107"></use>
+          <use href="#mod-cube" x="230" y="162"></use>
+          <use href="#mod-cube" x="230" y="217"></use>
+          <use href="#mod-cube" x="230" y="272"></use>
+
+          <line x1="84" y1="120" x2="230" y2="120" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+          <line x1="84" y1="175" x2="230" y2="175" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+          <line x1="84" y1="230" x2="230" y2="230" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+          <line x1="84" y1="285" x2="230" y2="285" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+
+          <line x1="256" y1="120" x2="340" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.55"></line>
+          <line x1="256" y1="175" x2="340" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.55"></line>
+          <line x1="256" y1="230" x2="340" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.55"></line>
+          <line x1="256" y1="285" x2="340" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.55"></line>
+
+          <path d="M340,90 A155,18 0 0,0 650,90 L650,330 A155,18 0 0,1 340,330 Z" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.5"></path>
+          <ellipse cx="495" cy="330" rx="155" ry="18" fill="currentColor" fill-opacity="0.10" stroke="currentColor" stroke-width="1.5"></ellipse>
+          <ellipse cx="495" cy="90" rx="155" ry="18" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.5"></ellipse>
+          <line x1="340" y1="150" x2="650" y2="150" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"></line>
+          <line x1="340" y1="210" x2="650" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"></line>
+          <line x1="340" y1="270" x2="650" y2="270" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"></line>
+          <text x="495" y="124" text-anchor="middle" font-size="14">SaaS AWS</text>
+          <text x="495" y="184" text-anchor="middle" font-size="14">SaaS Azure</text>
+          <text x="495" y="244" text-anchor="middle" font-size="14">SaaS Other</text>
+          <text x="495" y="304" text-anchor="middle" font-size="14">On Prem Dell Series X</text>
+          <text x="495" y="356" text-anchor="middle" font-size="13" fill-opacity="0.7">Etc..</text>
+
+          <line x1="650" y1="210" x2="760" y2="150" stroke="currentColor" stroke-width="1" stroke-opacity="0.55"></line>
+          <line x1="650" y1="210" x2="760" y2="210" stroke="currentColor" stroke-width="1" stroke-opacity="0.55"></line>
+          <line x1="650" y1="210" x2="760" y2="270" stroke="currentColor" stroke-width="1" stroke-opacity="0.55"></line>
+
+          <use href="#mod-cube" x="760" y="137"></use>
+          <use href="#mod-cube" x="760" y="197"></use>
+          <use href="#mod-cube" x="760" y="257"></use>
+
+          <line x1="786" y1="150" x2="900" y2="198" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+          <line x1="786" y1="210" x2="900" y2="210" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+          <line x1="786" y1="270" x2="900" y2="222" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#wf-arrow)"></line>
+        </svg>
+        <figcaption style="font-size: 13px; color: var(--color-neutral-300); margin-top: 10px;">How Fusion moves data: source systems in on the left through connector Python modules, governed centrally, out through access Python modules to services and applications on the right.</figcaption>
+      </figure>
     </article>
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
