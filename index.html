@@ -116,7 +116,6 @@ a:hover { color: var(--color-accent-ink-hover); }
 .lightbox-close { position: absolute; top: 20px; right: 28px; width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .08); color: #fefcfb; font-size: 20px; line-height: 1; cursor: pointer; }
 .blur-frame { position: relative; display: block; }
 .blur-patch { position: absolute; inset: 0; border-radius: 4px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: color-mix(in srgb, var(--color-bg) 28%, transparent); pointer-events: none; }
-.blur-patch--video { inset: 0 0 40px 0; border-radius: 4px 4px 0 0; }
 #lightbox-frame.blur-frame { display: inline-flex; }
 #lightbox-blur[hidden] { display: none; }
 
@@ -353,13 +352,6 @@ a:hover { color: var(--color-accent-ink-hover); }
         <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Virtual Data Lake MVP</h3>
         <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Query data where it lives, exposed through an API that tools like Claude Code and Postgres clients speak natively. Scoped, built and shipped in roughly two months; adopted immediately as DTACT's first enterprise deployment.</p>
       </div>
-      <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0; display: grid; gap: 10px;">
-        <span class="blur-frame">
-          <video id="demo-video" src="assets/demo-fusion.mov" controls preload="metadata" controlsList="nofullscreen nodownload noremoteplayback" disablePictureInPicture style="width: 100%; border-radius: 4px; display: block;"></video>
-          <span class="blur-patch blur-patch--video"></span>
-        </span>
-        <figcaption style="font-size: 13px; color: var(--color-neutral-300);">Live walkthrough of the Fusion catalogue — explore, connect and share screens.</figcaption>
-      </figure>
     </article>
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
@@ -586,16 +578,6 @@ a:hover { color: var(--color-accent-ink-hover); }
       lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
       if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
-    }
-    var demoVideo = document.getElementById('demo-video');
-    if (demoVideo) {
-      var exitVideoFullscreen = function () {
-        if (document.fullscreenElement === demoVideo && document.exitFullscreen) document.exitFullscreen();
-        if (demoVideo.webkitDisplayingFullscreen && demoVideo.webkitExitFullscreen) demoVideo.webkitExitFullscreen();
-      };
-      demoVideo.addEventListener('webkitbeginfullscreen', exitVideoFullscreen);
-      document.addEventListener('fullscreenchange', exitVideoFullscreen);
-      demoVideo.addEventListener('dblclick', function (e) { e.preventDefault(); });
     }
   }
   if (document.readyState === 'loading') {
