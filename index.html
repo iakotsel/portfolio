@@ -463,13 +463,23 @@ a:hover { color: var(--color-accent-ink-hover); }
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
       <div style="flex: 1 1 420px; min-width: 0;">
         <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">03 — Tesla</p>
-        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">The AX/D365 accounting engine</h3>
-        <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">EMEA's statement production for 40+ legal entities, owned end to end. Rules, edge cases and reconciliation moved out of analysts' inboxes and into the engine: 70%+ of statements generated without intervention, tax discrepancies down 95%.</p>
-        <p style="font-size: 15px; line-height: 24px; color: var(--color-neutral-300); margin: 16px 0 0;">Placeholder — drop an interface capture in the frame.</p>
+        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">AXI — the D365 accounting engine</h3>
+        <div style="margin-top: 18px; display: grid; gap: 16px; max-width: 60ch;">
+          <div>
+            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 6px;">The problem</p>
+            <p style="font-size: 16px; line-height: 26px; margin: 0;">Tesla's EMEA team supports 40+ legal entities across 25+ jurisdictions, each with its own compliance requirements, local integrations and logic. The accounting engine also has to integrate with Tesla's internal tools — including the internal "Warp" system spanning logistics, delivery, billing, payments, supercharging and ordering — which demanded fully customized accounting logic. On top of that, new GDPR rules pushed for localizing the databases holding sensitive production data.</p>
+          </div>
+          <div>
+            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 6px;">The solution</p>
+            <p style="font-size: 16px; line-height: 26px; margin: 0;">Led product efforts for the team that deployed AXI, an EU-based accounting engine that automates the bulk of transaction volume (70%+) — tens of billions of dollars logged yearly, with 15M+ data entries processed daily. New rules, edge cases and reconciliation moved out of analysts' inboxes and into the engine: custom logic for wealth tax in Norway and Turkey, withholding tax handling, adjusting transaction granularity, and more.</p>
+          </div>
+        </div>
       </div>
-      <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0;">
-        <div class="media-slot" style="width: 100%; aspect-ratio: 16 / 10;" data-slot="proj-ax"><span>Add image: AX / D365 interface<br><small>(proj-ax.jpg in /assets)</small></span></div>
-      </figure>
+      <div style="flex: 1 1 280px; min-width: 0; display: grid; align-content: start; gap: 18px;">
+        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">70%+</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Of transaction volume automated</p></div>
+        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">15M+</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Data entries processed daily</p></div>
+        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">Tens of $B</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Transacted yearly</p></div>
+      </div>
     </article>
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
@@ -482,6 +492,10 @@ a:hover { color: var(--color-accent-ink-hover); }
         <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">$120k</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Monthly sanctions avoided</p></div>
         <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-size: 15px; line-height: 24px; margin: 0;">Compliance turned into a background process, not a checklist.</p></div>
       </div>
+      <figure class="grayscale" style="flex: 1 1 100%; min-width: 0; margin: 12px 0 0;">
+        <img class="zoomable" src="assets/tesla_polish_gov_fiscal_receipts.drawio.png" alt="Flow diagram: Tesla-side customer, order and payment data is joined, validated, deduplicated and formatted, then handed to the partner integration, which validates and prepares receipts for print, connected with and monitored by the Polish government" style="display: block; max-width: 620px; width: 100%; margin: 0 auto; border-radius: 4px;">
+        <figcaption style="font-size: 13px; color: var(--color-neutral-300); text-align: center; margin-top: 10px;">How receipts get issued: Tesla-side data is joined, validated and formatted, then handed to the partner integration — connected with and monitored by the Polish government.</figcaption>
+      </figure>
     </article>
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
