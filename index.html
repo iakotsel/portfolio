@@ -8,116 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-
-:root {
-  --font-heading: 'Sora', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
-  --color-bg: #0a1128;
-  --color-surface: #001f54;
-  --color-text: #fefcfb;
-  --color-accent: #c0cbdf;
-  --color-accent-2: #034078;
-  --color-divider: color-mix(in srgb, #fefcfb 32%, transparent);
-  --color-accent-ink: #c0cbdf;
-  --color-accent-ink-hover: #dbe3ef;
-
-  --color-neutral-100: #f4f7fb;
-  --color-neutral-200: #dbe3ef;
-  --color-neutral-300: #c0cbdf;
-  --color-neutral-400: #9aa8c2;
-  --color-neutral-500: #74839f;
-  --color-neutral-600: #556483;
-  --color-neutral-700: #3a4a70;
-  --color-neutral-800: #16255a;
-  --color-neutral-900: #0a1128;
-
-  --color-accent-100: #f4f7fb;
-  --color-accent-200: #dbe3ef;
-  --color-accent-300: #c0cbdf;
-  --color-accent-400: #9aa8c2;
-  --color-accent-500: #74839f;
-  --color-accent-600: #556483;
-  --color-accent-700: #3a4a70;
-  --color-accent-800: #16255a;
-  --color-accent-900: #0a1128;
-
-  --color-accent-2-100: #e9eff9;
-  --color-accent-2-200: #c6d6ef;
-  --color-accent-2-300: #94b0dd;
-  --color-accent-2-400: #4a77bb;
-  --color-accent-2-500: #034078;
-  --color-accent-2-600: #033566;
-  --color-accent-2-700: #022a54;
-  --color-accent-2-800: #001f54;
-  --color-accent-2-900: #0a1128;
-}
-:root[data-theme="light"] {
-  --color-bg: #f4f7fb;
-  --color-surface: #eaeff8;
-  --color-text: #0a1128;
-  --color-divider: color-mix(in srgb, #0a1128 16%, transparent);
-  --color-neutral-300: #556483;
-  --color-accent-ink: #556483;
-  --color-accent-ink-hover: #3a4a70;
-}
-.btn { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 11px 22px; font-family: var(--font-body); font-weight: 600; font-size: 14px; line-height: 1.2; text-decoration: none; border: 1.5px solid transparent; cursor: pointer; white-space: nowrap; transition: background .15s, border-color .15s, color .15s, opacity .15s; }
-.btn-primary { background: #c0cbdf; border-color: #c0cbdf; color: #0a1128; }
-.btn-primary:hover { background: color-mix(in srgb, #c0cbdf 85%, white); border-color: color-mix(in srgb, #c0cbdf 85%, white); }
-.btn-primary:active { background: color-mix(in srgb, #c0cbdf 82%, black); border-color: color-mix(in srgb, #c0cbdf 82%, black); }
-.nav a { color: var(--color-accent-ink); }
-.nav a:hover { color: var(--color-accent-ink-hover); }
-.nav a.btn-primary { color: #0a1128; }
-.btn-secondary { background: transparent; border-color: var(--color-divider); color: var(--color-text); }
-.btn-secondary:hover { border-color: var(--color-accent-ink); color: var(--color-accent-ink); }
-.btn-ghost { background: transparent; border-color: currentColor; color: inherit; }
-.btn-ghost:hover { opacity: .78; }
-.tag-accent { background: var(--color-accent-300); color: #0a1128; }
-.theme-toggle { border: 1px solid var(--color-divider); background: transparent; color: var(--color-text); width: 32px; height: 32px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
-.theme-toggle svg { width: 16px; height: 16px; }
-.theme-toggle .icon-sun { display: none; }
-:root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
-:root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
-html { scroll-behavior: smooth; }
-body { margin: 0; text-wrap: pretty; }
-a { color: var(--color-accent-ink); text-underline-offset: 3px; }
-a:hover { color: var(--color-accent-ink-hover); }
-
-.log-rail { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 2px; align-self: start; }
-.log-rail button { text-align: left; background: none; border: none; cursor: pointer; font-family: var(--font-body); font-size: 13px; color: var(--color-neutral-300); padding: 9px 12px; border-left: 2px solid var(--color-divider); transition: color .15s, border-color .15s, background .15s; }
-.log-rail button .v { display: block; font-family: var(--font-heading); font-weight: 800; font-size: 14px; color: var(--color-text); }
-.log-rail button.active { color: var(--color-accent-ink); border-left-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 12%, transparent); }
-.log-rail button.active .v { color: var(--color-accent-ink); }
-
-.commit-log { border: 1px solid var(--color-divider); border-radius: 2px; overflow: hidden; margin-top: 20px; }
-.commit-log details { border-top: 1px solid var(--color-divider); }
-.commit-log details:first-child { border-top: none; }
-.commit-log summary { list-style: none; cursor: pointer; padding: 14px 18px; display: flex; align-items: baseline; gap: 12px; font-size: 15px; line-height: 22px; }
-.commit-log summary::-webkit-details-marker { display: none; }
-.commit-log summary::before { content: "+"; font-family: var(--font-heading); font-weight: 800; color: var(--color-accent-ink); flex-shrink: 0; width: 14px; }
-.commit-log details[open] summary::before { content: "\2013"; }
-.commit-log .diff { padding: 0 18px 18px 44px; font-size: 15px; line-height: 24px; color: var(--color-neutral-300); }
-.metric-chip { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.02em; background: color-mix(in srgb, var(--color-accent) 16%, transparent); color: var(--color-accent-ink); padding: 3px 9px; border-radius: 3px; margin-top: 10px; display: inline-block; }
-
-@media (max-width: 760px) {
-  .log-rail { position: static; flex-direction: row; overflow-x: auto; padding-bottom: 8px; }
-  .log-rail button { border-left: none; border-bottom: 2px solid var(--color-divider); white-space: nowrap; }
-  .log-rail button.active { border-bottom-color: var(--color-accent); }
-}
-
-.grayscale img { filter: grayscale(1); width: 100%; display: block; }
-.grayscale video { width: 100%; display: block; }
-.zoomable { cursor: zoom-in; }
-.lightbox-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 32px; background: rgba(0, 0, 0, .85); cursor: zoom-out; }
-.lightbox-overlay.open { display: flex; }
-.lightbox-overlay img { max-width: 92vw; max-height: 92vh; width: auto; filter: none; border-radius: 4px; object-fit: contain; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
-.lightbox-close { position: absolute; top: 20px; right: 28px; width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .08); color: #fefcfb; font-size: 20px; line-height: 1; cursor: pointer; }
-.blur-frame { position: relative; display: block; }
-.blur-patch { position: absolute; inset: 0; border-radius: 4px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: color-mix(in srgb, var(--color-bg) 28%, transparent); pointer-events: none; }
-#lightbox-frame.blur-frame { display: inline-flex; }
-#lightbox-blur[hidden] { display: none; }
-
-</style>
+<link rel="stylesheet" href="tokens.css">
 </head>
 <body>
 
@@ -139,12 +30,12 @@ a:hover { color: var(--color-accent-ink-hover); }
 
 <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px);">
 
-  <section style="padding: 96px 0 72px;">
-    <h1 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(42px, 6.2vw, 84px); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 0 -0.058em;">
+  <section class="hero-section" style="padding: 96px 0 72px;">
+    <h1 class="text-display">
       <span style="display: block;">Manual operations in.</span>
       <span style="display: block;">Automated products out.</span>
     </h1>
-    <p style="font-size: 18px; line-height: 28px; max-width: 58ch; margin: 34px 0 0;">Data-driven product leader. Finance, payments and compliance work turned into software inside fast-moving, high-stakes environments — from wire allocation at Tesla to a virtual data lake shipped to defence and geoscience customers at DTACT, where I am Head of Product.</p>
+    <p class="text-body-lg" style="font-size: 18px; max-width: 58ch; margin-top: 34px;">Data-driven product leader. Finance, payments and compliance work turned into software inside fast-moving, high-stakes environments — from wire allocation at Tesla to a virtual data lake shipped to defence and geoscience customers at DTACT, where I am Head of Product.</p>
     <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;">
       <a class="btn btn-primary" href="#work">See the work</a>
       <a class="btn btn-secondary" href="#contact">Open to roles &amp; consulting</a>
@@ -153,23 +44,23 @@ a:hover { color: var(--color-accent-ink-hover); }
 
   <hr style="height: 2px; border: 0; margin: 0; background: var(--color-divider);" />
 
-  <section aria-label="Headline results" style="padding: 56px 0;">
+  <section class="stats-section" aria-label="Headline results" style="padding: 56px 0;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 42px 28px;">
       <div>
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px, 3.4vw, 48px); line-height: 1.05; color: var(--color-text); margin: 0 0 0 -0.045em;">250%</p>
-        <p style="font-size: 13px; line-height: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 14px 0 0;">YoY ARR growth at DTACT</p>
+        <p class="stat-display">250%</p>
+        <p class="label-sm" style="margin-top: 14px;">YoY ARR growth at DTACT</p>
       </div>
       <div>
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px, 3.4vw, 48px); line-height: 1.05; color: var(--color-text); margin: 0 0 0 -0.045em;">70%+</p>
-        <p style="font-size: 13px; line-height: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 14px 0 0;">Of Tesla EMEA statements automated</p>
+        <p class="stat-display">70%+</p>
+        <p class="label-sm" style="margin-top: 14px;">Of Tesla EMEA statements automated</p>
       </div>
       <div>
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px, 3.4vw, 48px); line-height: 1.05; color: var(--color-text); margin: 0 0 0 -0.045em;">$40M</p>
-        <p style="font-size: 13px; line-height: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 14px 0 0;">Per month through the amortisation tool</p>
+        <p class="stat-display">$40M</p>
+        <p class="label-sm" style="margin-top: 14px;">Per month through the amortisation tool</p>
       </div>
       <div>
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px, 3.4vw, 48px); line-height: 1.05; color: var(--color-text); margin: 0 0 0 -0.045em;">$120k</p>
-        <p style="font-size: 13px; line-height: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 14px 0 0;">Monthly VAT exposure removed</p>
+        <p class="stat-display">$120k</p>
+        <p class="label-sm" style="margin-top: 14px;">Monthly VAT exposure removed</p>
       </div>
     </div>
   </section>
@@ -177,9 +68,9 @@ a:hover { color: var(--color-accent-ink-hover); }
   <hr style="height: 2px; border: 0; margin: 0; background: var(--color-divider);" />
 
   <section id="career" style="padding: 72px 0 56px;">
-    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 42px;">The arc, as a changelog — 2018 to now</span>
+    <span class="eyebrow" style="margin-bottom: 42px;">The arc, as a changelog — 2018 to now</span>
 
-    <div style="display: grid; grid-template-columns: 190px 1fr; gap: 20px clamp(24px, 5vw, 56px); align-items: start;">
+    <div class="changelog-grid">
       <nav class="log-rail" id="log-rail">
         <button data-target="v1" class="active"><span class="v">v1.0</span>Payments ops</button>
         <button data-target="v1-1"><span class="v">v1.1</span>Finance analyst</button>
@@ -192,11 +83,11 @@ a:hover { color: var(--color-accent-ink-hover); }
         <article id="v1" style="padding: 0 0 48px;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
             <div>
-              <span style="font-family: var(--font-body); font-size: 13px; background: color-mix(in srgb, var(--color-text) 8%, transparent); padding: 3px 9px; border-radius: 3px;">v1.0</span>
-              <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; margin: 10px 0 0;">Accounts Receivable Specialist, Payments</h2>
-              <p style="font-size: 13px; line-height: 20px; color: var(--color-neutral-300); margin: 6px 0 0;">Tesla, Amsterdam</p>
+              <span class="version-tag">v1.0</span>
+              <h2 class="text-h2" style="margin-top: 10px;">Accounts Receivable Specialist, Payments</h2>
+              <p class="text-small" style="margin-top: 6px;">Tesla, Amsterdam</p>
             </div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-neutral-300); white-space: nowrap; margin: 0; font-feature-settings: 'tnum' 1;">Sept 2018 – June 2019</p>
+            <p class="text-mono-num">Sept 2018 – June 2019</p>
           </div>
           <div class="commit-log">
             <details>
@@ -221,11 +112,11 @@ a:hover { color: var(--color-accent-ink-hover); }
         <article id="v1-1" style="border-top: 2px solid var(--color-divider); padding: 48px 0;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
             <div>
-              <span style="font-family: var(--font-body); font-size: 13px; background: color-mix(in srgb, var(--color-text) 8%, transparent); padding: 3px 9px; border-radius: 3px;">v1.1</span>
-              <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; margin: 10px 0 0;">Financial Analyst</h2>
-              <p style="font-size: 13px; line-height: 20px; color: var(--color-neutral-300); margin: 6px 0 0;">Tesla, Amsterdam</p>
+              <span class="version-tag">v1.1</span>
+              <h2 class="text-h2" style="margin-top: 10px;">Financial Analyst</h2>
+              <p class="text-small" style="margin-top: 6px;">Tesla, Amsterdam</p>
             </div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-neutral-300); white-space: nowrap; margin: 0; font-feature-settings: 'tnum' 1;">July 2019 – July 2021</p>
+            <p class="text-mono-num">July 2019 – July 2021</p>
           </div>
           <div class="commit-log">
             <details>
@@ -248,11 +139,11 @@ a:hover { color: var(--color-accent-ink-hover); }
         <article id="v2" style="border-top: 2px solid var(--color-divider); padding: 48px 0;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
             <div>
-              <span style="font-family: var(--font-body); font-size: 13px; background: color-mix(in srgb, var(--color-text) 8%, transparent); padding: 3px 9px; border-radius: 3px;">v2.0</span>
-              <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; margin: 10px 0 0;">Software → Senior Software Product Manager</h2>
-              <p style="font-size: 13px; line-height: 20px; color: var(--color-neutral-300); margin: 6px 0 0;">Tesla, Finance Apps Engineering</p>
+              <span class="version-tag">v2.0</span>
+              <h2 class="text-h2" style="margin-top: 10px;">Software → Senior Software Product Manager</h2>
+              <p class="text-small" style="margin-top: 6px;">Tesla, Finance Apps Engineering</p>
             </div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-neutral-300); white-space: nowrap; margin: 0; font-feature-settings: 'tnum' 1;">Aug 2021 – July 2024</p>
+            <p class="text-mono-num">Aug 2021 – July 2024</p>
           </div>
           <div class="commit-log">
             <details>
@@ -291,11 +182,11 @@ a:hover { color: var(--color-accent-ink-hover); }
         <article id="v3" style="border-top: 2px solid var(--color-divider); padding: 48px 0 0;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
             <div>
-              <span style="font-family: var(--font-body); font-size: 13px; background: color-mix(in srgb, var(--color-accent) 22%, transparent); color: var(--color-accent-ink); padding: 3px 9px; border-radius: 3px;">v3.0 · current</span>
-              <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; margin: 10px 0 0;">Product Manager → Head of Product</h2>
-              <p style="font-size: 13px; line-height: 20px; color: var(--color-neutral-300); margin: 6px 0 0;">DTACT (Dutch Sec B.V.), The Hague</p>
+              <span class="version-tag is-current">v3.0 · current</span>
+              <h2 class="text-h2" style="margin-top: 10px;">Product Manager → Head of Product</h2>
+              <p class="text-small" style="margin-top: 6px;">DTACT (Dutch Sec B.V.), The Hague</p>
             </div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-neutral-300); white-space: nowrap; margin: 0; font-feature-settings: 'tnum' 1;">Sept 2024 – present</p>
+            <p class="text-mono-num">Sept 2024 – present</p>
           </div>
           <div class="commit-log">
             <details>
@@ -338,24 +229,24 @@ a:hover { color: var(--color-accent-ink-hover); }
   <hr style="height: 2px; border: 0; margin: 0; background: var(--color-divider);" />
 
   <section id="work" style="padding: 72px 0 32px;">
-    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 28px;">Selected work</span>
-    <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 0 -0.03em; max-width: 20ch;">Seven systems that replaced a spreadsheet, a queue, or a person's afternoon.</h2>
+    <span class="eyebrow" style="margin-bottom: 28px;">Selected work</span>
+    <h2 class="text-h1" style="max-width: 20ch;">Seven systems that replaced a spreadsheet, a queue, or a person's afternoon.</h2>
   </section>
 
   <section aria-label="Featured projects" style="padding: 24px 0 56px;">
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
       <div style="flex: 1 1 420px; min-width: 0;">
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">01 — DTACT</p>
-        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Virtual Data Lake MVP</h3>
+        <p class="eyebrow" style="margin-bottom: 12px;">01 — DTACT</p>
+        <h3 class="text-h2">Virtual Data Lake MVP</h3>
         <div style="margin-top: 18px; display: grid; gap: 16px; max-width: 60ch;">
           <div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 6px;">The problem</p>
-            <p style="font-size: 16px; line-height: 26px; margin: 0;">Data providers require heavy ETL pipelines and complex implementations, plus vendor lock-in — and most options are US-based, leaving the EU market with very few alternatives.</p>
+            <p class="eyebrow-sm" style="margin-bottom: 6px;">The problem</p>
+            <p class="text-body-lg">Data providers require heavy ETL pipelines and complex implementations, plus vendor lock-in — and most options are US-based, leaving the EU market with very few alternatives.</p>
           </div>
           <div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 6px;">The solution</p>
-            <p style="font-size: 16px; line-height: 26px; margin: 0;">An EU-made, virtual-first data lake: query data where it lives, skip the heavy pipelines and storage, apply permissions, and expose it through an API that tools like Claude Code, Postgres and OData clients speak natively. Scoped, built and shipped in roughly two months; adopted immediately as DTACT's first enterprise deployment.</p>
+            <p class="eyebrow-sm" style="margin-bottom: 6px;">The solution</p>
+            <p class="text-body-lg">An EU-made, virtual-first data lake: query data where it lives, skip the heavy pipelines and storage, apply permissions, and expose it through an API that tools like Claude Code, Postgres and OData clients speak natively. Scoped, built and shipped in roughly two months; adopted immediately as DTACT's first enterprise deployment.</p>
           </div>
         </div>
       </div>
@@ -433,24 +324,24 @@ a:hover { color: var(--color-accent-ink-hover); }
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
       <div style="flex: 1 1 420px; min-width: 0;">
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">02 — DTACT · Fugro</p>
-        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">The geophysics pilot</h3>
+        <p class="eyebrow" style="margin-bottom: 12px;">02 — DTACT · Fugro</p>
+        <h3 class="text-h2">The geophysics pilot</h3>
         <div style="margin-top: 18px; display: grid; gap: 16px; max-width: 60ch;">
           <div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 6px;">The problem</p>
-            <p style="font-size: 16px; line-height: 26px; margin: 0;">Fugro's ocean-survey geophysicists turn raw magnetometer and positioning data into target picks — flagging unexploded ordnance, cables and other seabed hazards — by manually applying filters using an expensive, vendor-locked third-party tool.</p>
+            <p class="eyebrow-sm" style="margin-bottom: 6px;">The problem</p>
+            <p class="text-body-lg">Fugro's ocean-survey geophysicists turn raw magnetometer and positioning data into target picks — flagging unexploded ordnance, cables and other seabed hazards — by manually applying filters using an expensive, vendor-locked third-party tool.</p>
           </div>
           <div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 6px;">The solution</p>
-            <p style="font-size: 16px; line-height: 26px; margin: 0;">We built a pilot that ingests standard data inputs, lets users configure it per project, and outputs the files their geophysics software expects — automating a specialist manual workflow and cutting Fugro's dependency on that vendor.</p>
+            <p class="eyebrow-sm" style="margin-bottom: 6px;">The solution</p>
+            <p class="text-body-lg">We built a pilot that ingests standard data inputs, lets users configure it per project, and outputs the files their geophysics software expects — automating a specialist manual workflow and cutting Fugro's dependency on that vendor.</p>
           </div>
         </div>
       </div>
       <div style="flex: 1 1 280px; min-width: 0; display: grid; align-content: start; gap: 18px;">
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">&lt;2 months</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Problem scoped to solution delivered</p></div>
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">6/6</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">SoW items met</p></div>
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">Paid Pilot</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Engagement type</p></div>
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-size: 15px; line-height: 24px; margin: 0;">Proved DTACT could handle a customer's hardest data problem end to end — and built the trust behind Fugro's later investment in the company.</p></div>
+        <div class="stat-card"><p class="stat-number">&lt;2 months</p><p class="label-sm" style="margin-top: 8px;">Problem scoped to solution delivered</p></div>
+        <div class="stat-card"><p class="stat-number">6/6</p><p class="label-sm" style="margin-top: 8px;">SoW items met</p></div>
+        <div class="stat-card"><p class="stat-number">Paid Pilot</p><p class="label-sm" style="margin-top: 8px;">Engagement type</p></div>
+        <div class="stat-card"><p style="font-size: 15px; line-height: 24px; margin: 0;">Proved DTACT could handle a customer's hardest data problem end to end — and built the trust behind Fugro's later investment in the company.</p></div>
       </div>
       <figure class="grayscale" style="flex: 1 1 100%; min-width: 0; margin: 12px 0 0;">
         <img class="zoomable" src="assets/mag_qc_automation.png" alt="Automated magnetometer QC pipeline — scheduled ingest through a numbered processing sequence to port/starboard merge and export (step detail intentionally obscured)" style="display: block; max-width: 420px; width: 100%; margin: 0 auto; border-radius: 4px;">
@@ -460,35 +351,35 @@ a:hover { color: var(--color-accent-ink-hover); }
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
       <div style="flex: 1 1 420px; min-width: 0;">
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">03 — Tesla</p>
-        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">AXI — the D365 accounting engine</h3>
+        <p class="eyebrow" style="margin-bottom: 12px;">03 — Tesla</p>
+        <h3 class="text-h2">AXI — the D365 accounting engine</h3>
         <div style="margin-top: 18px; display: grid; gap: 16px; max-width: 60ch;">
           <div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 6px;">The problem</p>
-            <p style="font-size: 16px; line-height: 26px; margin: 0;">Tesla's EMEA team supports 40+ legal entities across 25+ jurisdictions, each with its own compliance requirements, local integrations and logic. The accounting engine also has to integrate with Tesla's internal tools — including the internal "Warp" system spanning logistics, delivery, billing, payments, supercharging and ordering — which demanded fully customized accounting logic. On top of that, new GDPR rules pushed for localizing the databases holding sensitive production data.</p>
+            <p class="eyebrow-sm" style="margin-bottom: 6px;">The problem</p>
+            <p class="text-body-lg">Tesla's EMEA team supports 40+ legal entities across 25+ jurisdictions, each with its own compliance requirements, local integrations and logic. The accounting engine also has to integrate with Tesla's internal tools — including the internal "Warp" system spanning logistics, delivery, billing, payments, supercharging and ordering — which demanded fully customized accounting logic. On top of that, new GDPR rules pushed for localizing the databases holding sensitive production data.</p>
           </div>
           <div>
-            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 6px;">The solution</p>
-            <p style="font-size: 16px; line-height: 26px; margin: 0;">Led product efforts for the team that deployed AXI, an EU-based accounting engine that automates the bulk of transaction volume (70%+) — tens of billions of dollars logged yearly, with 15M+ data entries processed daily. New rules, edge cases and reconciliation moved out of analysts' inboxes and into the engine: custom logic for wealth tax in Norway and Turkey, withholding tax handling, adjusting transaction granularity, and more.</p>
+            <p class="eyebrow-sm" style="margin-bottom: 6px;">The solution</p>
+            <p class="text-body-lg">Led product efforts for the team that deployed AXI, an EU-based accounting engine that automates the bulk of transaction volume (70%+) — tens of billions of dollars logged yearly, with 15M+ data entries processed daily. New rules, edge cases and reconciliation moved out of analysts' inboxes and into the engine: custom logic for wealth tax in Norway and Turkey, withholding tax handling, adjusting transaction granularity, and more.</p>
           </div>
         </div>
       </div>
       <div style="flex: 1 1 280px; min-width: 0; display: grid; align-content: start; gap: 18px;">
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">70%+</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Of transaction volume automated</p></div>
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">15M+</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Data entries processed daily</p></div>
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">Tens of $B</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Transacted yearly</p></div>
+        <div class="stat-card"><p class="stat-number">70%+</p><p class="label-sm" style="margin-top: 8px;">Of transaction volume automated</p></div>
+        <div class="stat-card"><p class="stat-number">15M+</p><p class="label-sm" style="margin-top: 8px;">Data entries processed daily</p></div>
+        <div class="stat-card"><p class="stat-number">Tens of $B</p><p class="label-sm" style="margin-top: 8px;">Transacted yearly</p></div>
       </div>
     </article>
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
       <div style="flex: 1 1 420px; min-width: 0;">
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">04 — Tesla</p>
-        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Polish fiscal receipts</h3>
-        <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Poland requires a fiscal receipt per transaction, on certified hardware, within a fixed window. Missing them carried sanctions. I specified and shipped the product that issues them automatically — removing $120k a month of exposure.</p>
+        <p class="eyebrow" style="margin-bottom: 12px;">04 — Tesla</p>
+        <h3 class="text-h2">Polish fiscal receipts</h3>
+        <p class="text-body-lg" style="max-width: 60ch; margin-top: 16px;">Poland requires a fiscal receipt per transaction, on certified hardware, within a fixed window. Missing them carried sanctions. I specified and shipped the product that issues them automatically — removing $120k a month of exposure.</p>
       </div>
       <div style="flex: 1 1 280px; min-width: 0; display: grid; align-content: start; gap: 18px;">
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">$120k</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Monthly sanctions avoided</p></div>
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-size: 15px; line-height: 24px; margin: 0;">Compliance turned into a background process, not a checklist.</p></div>
+        <div class="stat-card"><p class="stat-number">$120k</p><p class="label-sm" style="margin-top: 8px;">Monthly sanctions avoided</p></div>
+        <div class="stat-card"><p style="font-size: 15px; line-height: 24px; margin: 0;">Compliance turned into a background process, not a checklist.</p></div>
       </div>
       <figure class="grayscale" style="flex: 1 1 100%; min-width: 0; margin: 12px 0 0;">
         <img class="zoomable" src="assets/tesla_polish_gov_fiscal_receipts.drawio.png" alt="Flow diagram: Tesla-side customer, order and payment data is joined, validated, deduplicated and formatted, then handed to the partner integration, which validates and prepares receipts for print, connected with and monitored by the Polish government" style="display: block; max-width: 620px; width: 100%; margin: 0 auto; border-radius: 4px;">
@@ -498,37 +389,37 @@ a:hover { color: var(--color-accent-ink-hover); }
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
       <div style="flex: 1 1 420px; min-width: 0;">
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">05 — Tesla</p>
-        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">The amortisation tool</h3>
-        <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">$40M a month of schedules, previously maintained by hand across workbooks. The tool books them on a calendar, reconciles itself, and gives back 60+ hours of accountants' time every month.</p>
+        <p class="eyebrow" style="margin-bottom: 12px;">05 — Tesla</p>
+        <h3 class="text-h2">The amortisation tool</h3>
+        <p class="text-body-lg" style="max-width: 60ch; margin-top: 16px;">$40M a month of schedules, previously maintained by hand across workbooks. The tool books them on a calendar, reconciles itself, and gives back 60+ hours of accountants' time every month.</p>
       </div>
       <div style="flex: 1 1 280px; min-width: 0; display: grid; align-content: start; gap: 18px;">
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">60+ hrs</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Returned per month</p></div>
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-size: 15px; line-height: 24px; margin: 0;">$40M/month of amortisation schedules under automated control.</p></div>
+        <div class="stat-card"><p class="stat-number">60+ hrs</p><p class="label-sm" style="margin-top: 8px;">Returned per month</p></div>
+        <div class="stat-card"><p style="font-size: 15px; line-height: 24px; margin: 0;">$40M/month of amortisation schedules under automated control.</p></div>
       </div>
     </article>
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); padding: 40px 0;">
       <div style="flex: 1 1 420px; min-width: 0;">
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">06 — Tesla</p>
-        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Cycle review automation</h3>
-        <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Monthly reporting rebuilt on Power BI and SQL: two days of assembling numbers became a thirty-minute review of them. Forty-plus colleagues trained to run and extend it themselves.</p>
+        <p class="eyebrow" style="margin-bottom: 12px;">06 — Tesla</p>
+        <h3 class="text-h2">Cycle review automation</h3>
+        <p class="text-body-lg" style="max-width: 60ch; margin-top: 16px;">Monthly reporting rebuilt on Power BI and SQL: two days of assembling numbers became a thirty-minute review of them. Forty-plus colleagues trained to run and extend it themselves.</p>
       </div>
       <div style="flex: 1 1 280px; min-width: 0; display: grid; align-content: start; gap: 18px;">
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">2 days → 30 min</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Monthly reporting review time</p></div>
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">40+</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Colleagues trained to self-serve</p></div>
+        <div class="stat-card"><p class="stat-number">2 days → 30 min</p><p class="label-sm" style="margin-top: 8px;">Monthly reporting review time</p></div>
+        <div class="stat-card"><p class="stat-number">40+</p><p class="label-sm" style="margin-top: 8px;">Colleagues trained to self-serve</p></div>
       </div>
     </article>
 
     <article style="display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 5vw, 72px); border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); padding: 40px 0;">
       <div style="flex: 1 1 420px; min-width: 0;">
-        <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 12px;">07 — Tesla</p>
-        <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 30px; line-height: 1.12; letter-spacing: -0.015em; margin: 0;">Payments allocation</h3>
-        <p style="font-size: 16px; line-height: 28px; max-width: 60ch; margin: 16px 0 0;">Where the story starts. Ten thousand wires a day matched by hand; matching logic, bank SLAs and exception handling turned it into a ~70% automated flow that survived the Model 3 launch.</p>
+        <p class="eyebrow" style="margin-bottom: 12px;">07 — Tesla</p>
+        <h3 class="text-h2">Payments allocation</h3>
+        <p class="text-body-lg" style="max-width: 60ch; margin-top: 16px;">Where the story starts. Ten thousand wires a day matched by hand; matching logic, bank SLAs and exception handling turned it into a ~70% automated flow that survived the Model 3 launch.</p>
       </div>
       <div style="flex: 1 1 280px; min-width: 0; display: grid; align-content: start; gap: 18px;">
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); margin: 0;">10x</p><p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 8px 0 0;">Volume spike absorbed</p></div>
-        <div style="border-top: 1px solid var(--color-divider); padding-top: 12px;"><p style="font-size: 15px; line-height: 24px; margin: 0;">4,000–10,000 payments a day, ~70% allocated automatically.</p></div>
+        <div class="stat-card"><p class="stat-number">10x</p><p class="label-sm" style="margin-top: 8px;">Volume spike absorbed</p></div>
+        <div class="stat-card"><p style="font-size: 15px; line-height: 24px; margin: 0;">4,000–10,000 payments a day, ~70% allocated automatically.</p></div>
       </div>
     </article>
   </section>
@@ -536,32 +427,32 @@ a:hover { color: var(--color-accent-ink-hover); }
   <section aria-label="At DTACT" style="padding: 56px 0 72px;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px clamp(24px, 5vw, 72px);">
       <div>
-        <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 20px;">MVP 2025 — voted by colleagues</span>
+        <span class="eyebrow" style="margin-bottom: 20px;">MVP 2025 — voted by colleagues</span>
         <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0;">
           <img class="zoomable" src="assets/culture-mvp.jpg" alt="MVP 2025 trucker cap embroidered with 'MVP 2025', next to the 24H Challenge coin" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px;">
         </figure>
-        <p style="font-size: 16px; line-height: 28px; margin: 20px 0 0; max-width: 46ch;">Named MVP of the year by the team — the part of the job that does not fit on a metrics line.</p>
+        <p class="text-body-lg" style="max-width: 46ch; margin-top: 20px;">Named MVP of the year by the team — the part of the job that does not fit on a metrics line.</p>
       </div>
       <div>
-        <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 20px;">The 24-hour Defence challenge</span>
+        <span class="eyebrow" style="margin-bottom: 20px;">The 24-hour Defence challenge</span>
         <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0;">
           <img class="zoomable" src="assets/culture-24h.jpg" alt="DTACT cap and the 24H Challenge coin, awarded by the Joint IT Command for the Ministry of Defence" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px;">
         </figure>
-        <p style="font-size: 16px; line-height: 28px; margin: 20px 0 0; max-width: 46ch;">One day to fuse several vendors' data sources into a working dashboard for the Ministry of Defence. We shipped it inside the window.</p>
+        <p class="text-body-lg" style="max-width: 46ch; margin-top: 20px;">One day to fuse several vendors' data sources into a working dashboard for the Ministry of Defence. We shipped it inside the window.</p>
       </div>
       <div>
-        <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 20px;">Gigafactory Berlin</span>
+        <span class="eyebrow" style="margin-bottom: 20px;">Gigafactory Berlin</span>
         <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0;">
           <img class="zoomable" src="assets/gigafactory_berlin_visit.jpeg" alt="Standing in front of the Optimus humanoid robot display at Tesla's Gigafactory Berlin" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px;">
         </figure>
-        <p style="font-size: 16px; line-height: 28px; margin: 20px 0 0; max-width: 46ch;">Touring the Gigafactory Berlin floor — Tesla's engineering culture, up close.</p>
+        <p class="text-body-lg" style="max-width: 46ch; margin-top: 20px;">Touring the Gigafactory Berlin floor — Tesla's engineering culture, up close.</p>
       </div>
       <div>
-        <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 20px;">Tesla Fremont, California</span>
+        <span class="eyebrow" style="margin-bottom: 20px;">Tesla Fremont, California</span>
         <figure class="grayscale" style="flex: 1 1 300px; min-width: 0; margin: 0;">
           <img class="zoomable" src="assets/tesla_fremont_california_visit.jpeg" alt="Tesla's Fremont, California factory building" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px;">
         </figure>
-        <p style="font-size: 16px; line-height: 28px; margin: 20px 0 0; max-width: 46ch;">At the original Fremont factory — where it all started.</p>
+        <p class="text-body-lg" style="max-width: 46ch; margin-top: 20px;">At the original Fremont factory — where it all started.</p>
       </div>
     </div>
   </section>
@@ -569,9 +460,9 @@ a:hover { color: var(--color-accent-ink-hover); }
   <hr style="height: 2px; border: 0; margin: 0; background: var(--color-divider);" />
 
   <section id="writing" style="padding: 72px 0;">
-    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 28px;">Writing</span>
+    <span class="eyebrow" style="margin-bottom: 28px;">Writing</span>
     <a href="https://app.notion.com/p/The-Power-of-a-Clear-Vision-1dc48ef337b480ecaa90fdcd098d0e0c" target="_blank" rel="noopener" style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); padding: 20px 0; text-decoration: none;">
-      <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 20px; line-height: 1.3; letter-spacing: -0.01em; margin: 0; color: var(--color-text);">The Power of a Clear Vision</h3>
+      <h3 class="text-h3">The Power of a Clear Vision</h3>
       <span style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); white-space: nowrap;">Read on Notion ↗</span>
     </a>
   </section>
@@ -579,28 +470,28 @@ a:hover { color: var(--color-accent-ink-hover); }
   <hr style="height: 2px; border: 0; margin: 0; background: var(--color-divider);" />
 
   <section id="skills" style="padding: 72px 0;">
-    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); margin: 0 0 42px;">Toolkit</span>
+    <span class="eyebrow" style="margin-bottom: 42px;">Toolkit</span>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 40px clamp(24px, 4vw, 56px);">
       <div>
-        <h4 style="font-family: var(--font-heading); font-weight: 800; font-size: 18px; line-height: 1.2; margin: 0 0 16px;">Product</h4>
+        <h4 class="text-h3" style="margin-bottom: 16px;">Product</h4>
         <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 15px; line-height: 22px; border-top: 1px solid var(--color-divider); padding-top: 14px;">
           <li>Agile &amp; sprint delivery</li><li>Roadmapping</li><li>Jira</li><li>Figma</li><li>AI product management</li>
         </ul>
       </div>
       <div>
-        <h4 style="font-family: var(--font-heading); font-weight: 800; font-size: 18px; line-height: 1.2; margin: 0 0 16px;">Data</h4>
+        <h4 class="text-h3" style="margin-bottom: 16px;">Data</h4>
         <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 15px; line-height: 22px; border-top: 1px solid var(--color-divider); padding-top: 14px;">
           <li>SQL</li><li>Power BI</li><li>Tableau</li><li>Python</li><li>R</li>
         </ul>
       </div>
       <div>
-        <h4 style="font-family: var(--font-heading); font-weight: 800; font-size: 18px; line-height: 1.2; margin: 0 0 16px;">Technical</h4>
+        <h4 class="text-h3" style="margin-bottom: 16px;">Technical</h4>
         <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 15px; line-height: 22px; border-top: 1px solid var(--color-divider); padding-top: 14px;">
           <li>Postman / APIs</li><li>GitLab</li><li>Dynamics 365</li><li>Postgres</li>
         </ul>
       </div>
       <div>
-        <h4 style="font-family: var(--font-heading); font-weight: 800; font-size: 18px; line-height: 1.2; margin: 0 0 16px;">Certified</h4>
+        <h4 class="text-h3" style="margin-bottom: 16px;">Certified</h4>
         <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 15px; line-height: 22px; border-top: 1px solid var(--color-divider); padding-top: 14px;">
           <li>PSPO I</li><li>HarvardX Data Science</li><li>Design Thinking</li><li>Transact-SQL</li>
         </ul>
@@ -611,7 +502,7 @@ a:hover { color: var(--color-accent-ink-hover); }
 
   <section id="contact" style="background: var(--color-accent-800); color: #fefcfb;">
     <div style="max-width: 1200px; margin: 0 auto; padding: 84px clamp(20px, 5vw, 72px);">
-      <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 0 -0.058em;">
+      <h3 class="text-display-sm">
         <span style="display: block;">Open to product leadership roles</span>
         <span style="display: block;">and select consulting work.</span>
       </h3>

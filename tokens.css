@@ -1,0 +1,239 @@
+/* =========================================================================
+   DESIGN TOKENS — Iakovos Tselentis portfolio
+   Single source of truth for color, type, buttons and shared components.
+   Keep index.html free of one-off hex values and repeated inline styles —
+   add a token or utility class here instead, then reuse it.
+   ========================================================================= */
+
+/* ---- 1. Color primitives ------------------------------------------------
+   Raw scales. Never reference these directly in markup or components below
+   this section — always go through the semantic tokens in section 2. */
+:root {
+  /* Blue — the brand hue. 400 is the base brand blue. */
+  --blue-50:  #e8f6fa;
+  --blue-100: #c2e7f1;
+  --blue-200: #8ed8ea;
+  --blue-300: #43b1d0;
+  --blue-400: #1282a2; /* brand blue */
+  --blue-500: #0f6b87;
+  --blue-600: #0c556c;
+  --blue-700: #034078;
+  --blue-800: #001f54;
+  --blue-900: #0a1128;
+
+  /* Neutral — cool gray-blue, for text, borders, muted UI. Deliberately a
+     different hue path than blue-* so "accent" and "neutral" never collapse
+     into each other. */
+  --neutral-50:  #f4f7fb;
+  --neutral-100: #dbe3ef;
+  --neutral-200: #c0cbdf;
+  --neutral-300: #9aa8c2;
+  --neutral-400: #74839f;
+  --neutral-500: #556483;
+  --neutral-600: #3a4a70;
+  --neutral-700: #16255a;
+  --neutral-800: #0a1128;
+  --neutral-900: #060a1a;
+
+  --white: #fefcfb;
+}
+
+/* ---- 2. Semantic tokens --------------------------------------------------
+   What components and markup actually use. Dark is the default; the
+   [data-theme="light"] block below overrides only what needs to change. */
+:root {
+  --font-heading: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: var(--neutral-800);
+  --color-surface: var(--blue-800);
+  --color-text: var(--white);
+  --color-text-muted: var(--neutral-200);
+  --color-border: color-mix(in srgb, var(--white) 32%, transparent);
+
+  --color-accent: var(--blue-400);        /* constant across themes */
+  --color-accent-soft: color-mix(in srgb, var(--blue-400) 16%, transparent);
+  --color-accent-ink: var(--blue-200);    /* accent used as text/links */
+  --color-accent-ink-hover: var(--blue-100);
+
+  --radius-full: 999px;
+  --radius-sm: 4px;
+
+  /* Back-compat aliases — old token names some markup may still reference.
+     Point them at the real tokens above rather than duplicating values. */
+  --color-divider: var(--color-border);
+  --color-neutral-300: var(--color-text-muted);
+}
+
+:root[data-theme="light"] {
+  --color-bg: var(--neutral-50);
+  --color-surface: #eef2f9;
+  --color-text: var(--neutral-800);
+  --color-text-muted: var(--neutral-500);
+  --color-border: color-mix(in srgb, var(--neutral-800) 16%, transparent);
+
+  --color-accent-ink: var(--blue-600);
+  --color-accent-ink-hover: var(--blue-500);
+}
+
+/* ---- 3. Base elements ----------------------------------------------------
+   Headings share family/weight everywhere; only size varies, via the .text-*
+   utilities in section 5. This is what keeps H1–H4 standardized site-wide. */
+html { scroll-behavior: smooth; }
+body { margin: 0; text-wrap: pretty; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: 15px; line-height: 1.55; }
+h1, h2, h3, h4, h5, h6 { margin: 0; font-family: var(--font-heading); font-weight: 800; }
+a { color: var(--color-accent-ink); text-underline-offset: 3px; }
+a:hover { color: var(--color-accent-ink-hover); }
+
+/* ---- 4. Buttons ------------------------------------------------------------
+   One shared interaction contract for every variant: hover tints toward the
+   accent, active tints further, and every variant gets the same focus ring.
+   Variants differ only in their resting fill/border/text color. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--radius-full);
+  padding: 11px 22px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--white); }
+.btn-primary:hover { background: var(--blue-500); border-color: var(--blue-500); }
+.btn-primary:active { background: var(--blue-600); border-color: var(--blue-600); }
+
+.btn-secondary { background: transparent; border-color: var(--color-border); color: var(--color-text); }
+.btn-secondary:hover { border-color: var(--color-accent-ink); color: var(--color-accent-ink); background: var(--color-accent-soft); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-accent) 24%, transparent); }
+
+/* Ghost sits on a dark, saturated surface (the contact band) and inherits
+   its text color, but follows the same tint-on-hover / tint-on-active rule
+   as the other two variants instead of a one-off opacity fade. */
+.btn-ghost { background: transparent; border-color: currentColor; color: inherit; }
+.btn-ghost:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, currentColor 24%, transparent); }
+
+.nav a.btn-primary { color: var(--white); }
+
+.theme-toggle {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color .15s, background .15s;
+}
+.theme-toggle:hover { border-color: var(--color-accent-ink); background: var(--color-accent-soft); }
+.theme-toggle:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+
+.tag-accent { background: var(--blue-200); color: var(--blue-900); }
+
+/* ---- 5. Typography utilities ---------------------------------------------
+   Every heading and label in the page should use one of these instead of
+   repeating font-size/line-height/letter-spacing inline. Numbering follows
+   visual size, largest first. */
+.text-display   { font-size: clamp(42px, 6.2vw, 84px); line-height: 1.06; letter-spacing: -0.02em; margin-left: -0.058em; }
+.text-display-sm{ font-size: clamp(34px, 4.2vw, 56px); line-height: 1.06; letter-spacing: -0.015em; margin-left: -0.058em; }
+.text-h1        { font-size: clamp(32px, 3.6vw, 48px); line-height: 1.08; letter-spacing: -0.02em; margin-left: -0.03em; }
+.text-h2        { font-size: 28px; line-height: 1.13; letter-spacing: -0.015em; }
+.text-h3        { font-size: 19px; line-height: 1.25; letter-spacing: -0.01em; }
+
+.stat-display { font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px, 3.4vw, 48px); line-height: 1.05; color: var(--color-text); margin-left: -0.045em; font-variant-numeric: tabular-nums; }
+.stat-number   { font-family: var(--font-heading); font-weight: 800; font-size: 32px; line-height: 1.1; color: var(--color-text); font-variant-numeric: tabular-nums; }
+
+.eyebrow    { display: block; font-family: var(--font-heading); font-weight: 800; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-ink); }
+.eyebrow-sm { display: block; font-family: var(--font-heading); font-weight: 800; font-size: 12px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); }
+.label-sm   { font-size: 13px; line-height: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); }
+
+.text-body-lg { font-size: 16px; line-height: 28px; }
+.text-muted   { color: var(--color-text-muted); }
+.text-small   { font-size: 13px; line-height: 20px; color: var(--color-text-muted); }
+.text-mono-num{ font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-text-muted); font-feature-settings: 'tnum' 1; }
+
+/* ---- 6. Layout components --------------------------------------------------- */
+.changelog-grid { display: grid; grid-template-columns: 190px 1fr; gap: 20px clamp(24px, 5vw, 56px); align-items: start; }
+
+.log-rail { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 2px; align-self: start; }
+.log-rail button { text-align: left; background: none; border: none; cursor: pointer; font-family: var(--font-body); font-size: 13px; color: var(--color-text-muted); padding: 9px 12px; border-left: 2px solid var(--color-border); transition: color .15s, border-color .15s, background .15s; }
+.log-rail button .v { display: block; font-family: var(--font-heading); font-weight: 800; font-size: 14px; color: var(--color-text); }
+.log-rail button:hover { color: var(--color-accent-ink); background: var(--color-accent-soft); }
+.log-rail button.active { color: var(--color-accent-ink); border-left-color: var(--color-accent); background: var(--color-accent-soft); }
+.log-rail button.active .v { color: var(--color-accent-ink); }
+
+.commit-log { border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; margin-top: 20px; }
+.commit-log details { border-top: 1px solid var(--color-border); }
+.commit-log details:first-child { border-top: none; }
+.commit-log summary { list-style: none; cursor: pointer; padding: 14px 18px; display: flex; align-items: baseline; gap: 12px; font-size: 15px; line-height: 22px; }
+.commit-log summary::-webkit-details-marker { display: none; }
+.commit-log summary::before { content: "+"; font-family: var(--font-heading); font-weight: 800; color: var(--color-accent-ink); flex-shrink: 0; width: 14px; }
+.commit-log details[open] summary::before { content: "\2013"; }
+.commit-log .diff { padding: 0 18px 18px 44px; font-size: 15px; line-height: 24px; color: var(--color-text-muted); }
+.metric-chip { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.02em; background: var(--color-accent-soft); color: var(--color-accent-ink); padding: 3px 9px; border-radius: var(--radius-sm); margin-top: 10px; display: inline-block; }
+
+.stat-card { border-top: 1px solid var(--color-border); padding-top: 12px; }
+
+/* Career-tag pill (v1.0 / v1.1 / v2.0 / v3.0 markers) */
+.version-tag { font-family: var(--font-body); font-size: 13px; background: color-mix(in srgb, var(--color-text) 8%, transparent); padding: 3px 9px; border-radius: var(--radius-sm); }
+.version-tag.is-current { background: var(--color-accent-soft); color: var(--color-accent-ink); }
+
+.grayscale img { filter: grayscale(1); width: 100%; display: block; }
+.grayscale video { width: 100%; display: block; }
+.zoomable { cursor: zoom-in; }
+.lightbox-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 32px; background: rgba(0, 0, 0, .85); cursor: zoom-out; }
+.lightbox-overlay.open { display: flex; }
+.lightbox-overlay img { max-width: 92vw; max-height: 92vh; width: auto; filter: none; border-radius: var(--radius-sm); object-fit: contain; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+.lightbox-close { position: absolute; top: 20px; right: 28px; width: 40px; height: 40px; border-radius: var(--radius-full); border: 1px solid rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .08); color: var(--white); font-size: 20px; line-height: 1; cursor: pointer; }
+.blur-frame { position: relative; display: block; }
+.blur-patch { position: absolute; inset: 0; border-radius: var(--radius-sm); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: color-mix(in srgb, var(--color-bg) 28%, transparent); pointer-events: none; }
+#lightbox-frame.blur-frame { display: inline-flex; }
+#lightbox-blur[hidden] { display: none; }
+
+.media-slot { border: 1.5px dashed var(--color-border); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; text-align: center; color: var(--color-text-muted); font-size: 13px; padding: 16px; box-sizing: border-box; }
+.media-slot small { opacity: .75; }
+
+/* ---- 7. Responsive ---------------------------------------------------------
+   Below 760px the changelog rail can't sit beside its content — collapse to
+   one column and turn the rail into a horizontal scrolling tab strip. */
+@media (max-width: 760px) {
+  .changelog-grid { grid-template-columns: 1fr; gap: 4px; }
+  .log-rail {
+    position: sticky; top: 56px; z-index: 10;
+    flex-direction: row; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    gap: 4px; padding: 8px 20px; margin: 0 -20px 12px;
+    background: var(--color-bg); border-bottom: 1px solid var(--color-border);
+  }
+  .log-rail button { border-left: none; border-bottom: 2px solid var(--color-border); white-space: nowrap; padding: 6px 10px; flex: 0 0 auto; }
+  .log-rail button.active { border-bottom-color: var(--color-accent); }
+  .commit-log summary { padding: 12px 14px; font-size: 14px; gap: 10px; }
+  .commit-log .diff { padding: 0 14px 16px 28px; font-size: 14px; }
+}
+
+@media (max-width: 520px) {
+  html { font-size: 14.5px; }
+  .nav { gap: 8px 14px !important; padding: 12px 20px !important; }
+  .nav-brand { margin-right: 0 !important; flex: 1 1 100%; order: -1; }
+  .hero-section { padding-top: 48px !important; padding-bottom: 40px !important; }
+  .stats-section { padding-top: 32px !important; padding-bottom: 32px !important; }
+}
