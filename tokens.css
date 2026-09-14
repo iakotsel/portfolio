@@ -110,22 +110,25 @@ a:hover { color: var(--color-accent-ink-hover); }
   outline-offset: 2px;
 }
 
+/* .btn owns its own text color in every state — a bare `a` / `a:hover`
+   rule elsewhere on the page must never win here. Every variant below
+   restates `color` on :hover and :active for that reason, even where the
+   value doesn't change; dropping one of those lines is how this bug
+   creeps back in (see git history). */
 .btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--white); }
-.btn-primary:hover { background: var(--blue-500); border-color: var(--blue-500); }
-.btn-primary:active { background: var(--blue-600); border-color: var(--blue-600); }
+.btn-primary:hover { background: var(--blue-500); border-color: var(--blue-500); color: var(--white); }
+.btn-primary:active { background: var(--blue-600); border-color: var(--blue-600); color: var(--white); }
 
 .btn-secondary { background: transparent; border-color: var(--color-border); color: var(--color-text); }
 .btn-secondary:hover { border-color: var(--color-accent-ink); color: var(--color-accent-ink); background: var(--color-accent-soft); }
-.btn-secondary:active { background: color-mix(in srgb, var(--color-accent) 24%, transparent); }
+.btn-secondary:active { border-color: var(--color-accent-ink); color: var(--color-accent-ink); background: color-mix(in srgb, var(--color-accent) 24%, transparent); }
 
 /* Ghost sits on a dark, saturated surface (the contact band) and inherits
    its text color, but follows the same tint-on-hover / tint-on-active rule
    as the other two variants instead of a one-off opacity fade. */
 .btn-ghost { background: transparent; border-color: currentColor; color: inherit; }
-.btn-ghost:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
-.btn-ghost:active { background: color-mix(in srgb, currentColor 24%, transparent); }
-
-.nav a.btn-primary { color: var(--white); }
+.btn-ghost:hover { background: color-mix(in srgb, currentColor 14%, transparent); color: inherit; }
+.btn-ghost:active { background: color-mix(in srgb, currentColor 24%, transparent); color: inherit; }
 
 .theme-toggle {
   border: 1px solid var(--color-border);
