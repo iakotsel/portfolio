@@ -9,21 +9,9 @@
    Raw scales. Never reference these directly in markup or components below
    this section — always go through the semantic tokens in section 2. */
 :root {
-  /* Blue — the brand hue. 400 is the base brand blue. */
-  --blue-50:  #e8f6fa;
-  --blue-100: #c2e7f1;
-  --blue-200: #8ed8ea;
-  --blue-300: #43b1d0;
-  --blue-400: #1282a2; /* brand blue */
-  --blue-500: #0f6b87;
-  --blue-600: #0c556c;
-  --blue-700: #034078;
-  --blue-800: #001f54;
-  --blue-900: #0a1128;
-
-  /* Neutral — cool gray-blue, for text, borders, muted UI. Deliberately a
-     different hue path than blue-* so "accent" and "neutral" never collapse
-     into each other. */
+  /* Neutral — cool gray-blue. Doubles as the accent: the site's brand
+     color is this pale blue-gray itself (--neutral-200), not a separate
+     saturated hue — there is deliberately no other blue scale here. */
   --neutral-50:  #f4f7fb;
   --neutral-100: #dbe3ef;
   --neutral-200: #c0cbdf;
@@ -46,15 +34,20 @@
   --font-body: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
 
   --color-bg: var(--neutral-800);
-  --color-surface: var(--blue-800);
+  --color-surface: #001f54;
   --color-text: var(--white);
   --color-text-muted: var(--neutral-200);
   --color-border: color-mix(in srgb, var(--white) 32%, transparent);
 
-  --color-accent: var(--blue-400);        /* constant across themes */
-  --color-accent-soft: color-mix(in srgb, var(--blue-400) 16%, transparent);
-  --color-accent-ink: var(--blue-200);    /* accent used as text/links */
-  --color-accent-ink-hover: var(--blue-100);
+  --color-accent: var(--neutral-200);     /* the pale blue — constant across themes */
+  --color-accent-on: var(--neutral-800);  /* text drawn on top of --color-accent */
+  --color-accent-soft: color-mix(in srgb, var(--neutral-200) 16%, transparent);
+  --color-accent-ink: var(--neutral-200); /* accent used as text/links */
+  --color-accent-ink-hover: var(--neutral-100);
+
+  /* A deliberately dark band (the closing contact section) that stays dark
+     in both themes — not tied to --color-bg, which flips. */
+  --color-band-bg: #001f54;
 
   --radius-full: 999px;
   --radius-sm: 4px;
@@ -72,8 +65,8 @@
   --color-text-muted: var(--neutral-500);
   --color-border: color-mix(in srgb, var(--neutral-800) 16%, transparent);
 
-  --color-accent-ink: var(--blue-600);
-  --color-accent-ink-hover: var(--blue-500);
+  --color-accent-ink: var(--neutral-500);
+  --color-accent-ink-hover: var(--neutral-600);
 }
 
 /* ---- 3. Base elements ----------------------------------------------------
@@ -115,9 +108,9 @@ a:hover { color: var(--color-accent-ink-hover); }
    restates `color` on :hover and :active for that reason, even where the
    value doesn't change; dropping one of those lines is how this bug
    creeps back in (see git history). */
-.btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--white); }
-.btn-primary:hover { background: var(--blue-500); border-color: var(--blue-500); color: var(--white); }
-.btn-primary:active { background: var(--blue-600); border-color: var(--blue-600); color: var(--white); }
+.btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-on); }
+.btn-primary:hover { background: color-mix(in srgb, var(--color-accent) 85%, white); border-color: color-mix(in srgb, var(--color-accent) 85%, white); color: var(--color-accent-on); }
+.btn-primary:active { background: color-mix(in srgb, var(--color-accent) 82%, black); border-color: color-mix(in srgb, var(--color-accent) 82%, black); color: var(--color-accent-on); }
 
 .btn-secondary { background: transparent; border-color: var(--color-border); color: var(--color-text); }
 .btn-secondary:hover { border-color: var(--color-accent-ink); color: var(--color-accent-ink); background: var(--color-accent-soft); }
@@ -151,7 +144,7 @@ a:hover { color: var(--color-accent-ink-hover); }
 :root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
 :root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
 
-.tag-accent { background: var(--blue-200); color: var(--blue-900); }
+.tag-accent { background: var(--color-accent); color: var(--color-accent-on); }
 
 /* ---- 5. Typography utilities ---------------------------------------------
    Every heading and label in the page should use one of these instead of
