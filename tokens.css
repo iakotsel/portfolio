@@ -12,16 +12,16 @@
   /* Neutral — cool gray-blue. Doubles as the accent: the site's brand
      color is this pale blue-gray itself (--neutral-200), not a separate
      saturated hue — there is deliberately no other blue scale here. */
-  --neutral-50:  #f4f7fb;
-  --neutral-100: #dbe3ef;
-  --neutral-200: #c0cbdf;
-  --neutral-300: #9aa8c2;
-  --neutral-400: #74839f;
-  --neutral-500: #556483;
-  --neutral-600: #3a4a70;
-  --neutral-700: #16255a;
-  --neutral-800: #0a1128;
-  --neutral-900: #060a1a;
+  --neutral-50:  #eef3fa;
+  --neutral-100: #c9d8ea;
+  --neutral-200: #aebed8;
+  --neutral-300: #8a9ab8;
+  --neutral-400: #5f7196;
+  --neutral-500: #3d5278;
+  --neutral-600: #2a3550;
+  --neutral-700: #141b2e;
+  --neutral-800: #0a0e1a;
+  --neutral-900: #05070d;
 
   --white: #fefcfb;
 }
@@ -34,7 +34,7 @@
   --font-body: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
 
   --color-bg: var(--neutral-800);
-  --color-surface: #001f54;
+  --color-surface: #11204a;
   --color-text: var(--white);
   --color-text-muted: var(--neutral-200);
   --color-border: color-mix(in srgb, var(--white) 32%, transparent);
@@ -47,7 +47,7 @@
 
   /* A deliberately dark band (the closing contact section) that stays dark
      in both themes — not tied to --color-bg, which flips. */
-  --color-band-bg: #001f54;
+  --color-band-bg: #11204a;
 
   --radius-full: 999px;
   --radius-sm: 4px;
