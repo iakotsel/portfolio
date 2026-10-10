@@ -59,7 +59,7 @@
 }
 
 :root[data-theme="light"] {
-  --color-bg: var(--neutral-50);
+  --color-bg: #fefcfb;
   --color-surface: #eef2f9;
   --color-text: var(--neutral-800);
   --color-text-muted: var(--neutral-500);
