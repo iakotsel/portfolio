@@ -37,7 +37,7 @@
   --color-surface: #11204a;
   --color-text: var(--white);
   --color-text-muted: var(--neutral-200);
-  --color-border: color-mix(in srgb, var(--white) 32%, transparent);
+  --color-border: color-mix(in srgb, var(--white) 12%, transparent);
 
   --color-accent: var(--neutral-200);     /* the pale blue — constant across themes */
   --color-accent-on: var(--neutral-800);  /* text drawn on top of --color-accent */
@@ -50,6 +50,7 @@
   --color-band-bg: #11204a;
 
   --radius-full: 999px;
+  --radius-md: 10px;
   --radius-sm: 4px;
 
   /* Back-compat aliases — old token names some markup may still reference.
@@ -178,7 +179,7 @@ a:hover { color: var(--color-accent-ink-hover); }
 .log-rail button.active { color: var(--color-accent-ink); border-left-color: var(--color-accent); background: var(--color-accent-soft); }
 .log-rail button.active .v { color: var(--color-accent-ink); }
 
-.commit-log { border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; margin-top: 20px; }
+.commit-log { border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; margin-top: 20px; }
 .commit-log details { border-top: 1px solid var(--color-border); }
 .commit-log details:first-child { border-top: none; }
 .commit-log summary { list-style: none; cursor: pointer; padding: 14px 18px; display: flex; align-items: baseline; gap: 12px; font-size: 15px; line-height: 22px; }
