@@ -50,7 +50,7 @@
   --color-band-bg: #11204a;
 
   --radius-full: 999px;
-  --radius-md: 10px;
+  --radius-md: 16px;
   --radius-sm: 4px;
 
   /* Back-compat aliases — old token names some markup may still reference.
